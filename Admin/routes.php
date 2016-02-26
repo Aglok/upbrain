@@ -33,3 +33,4 @@ AdminRouter::get('/template/{template}', [
         return back()->withCookie($cookie);
     }
 ]);
+AdminRouter::post('group', ['as' => 'group','uses'=>'\App\Http\Controllers\ProcessController@getUsers']);

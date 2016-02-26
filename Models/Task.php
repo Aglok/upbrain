@@ -1,15 +1,8 @@
 <?php namespace App\Models;
 
-//use Illuminate\Auth\Authenticatable;
-//use Illuminate\Support\Str;
-//use Illuminate\Database\Eloquent\Model;
-//use Illuminate\Auth\Passwords\CanResetPassword;
-//use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-//use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use SleepingOwl\Models\Interfaces\ModelWithImageFieldsInterface;
 use SleepingOwl\Models\SleepingOwlModel;
 use SleepingOwl\Models\Traits\ModelWithImageOrFileFieldsTrait;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class Task extends SleepingOwlModel implements ModelWithImageFieldsInterface  {
 

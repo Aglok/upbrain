@@ -1,11 +1,8 @@
 <?php namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Auth;
 use illuminate\Support\Str;
 use SleepingOwl\Models\SleepingOwlModel;
-use SleepingOwl\Models\Interfaces\ModelWithOrderFieldInterface;
-use SleepingOwl\Models\Traits\ModelWithOrderFieldTrait;
 
 class Post extends SleepingOwlModel {
 

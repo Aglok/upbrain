@@ -12,7 +12,6 @@ Admin::model('App\Models\Post')->title('Article')
     })
     ->columns(function()
     {
-        //Column::string('id', 'Id');
         Column::string('link', 'Link');
         Column::string('header', 'Header');
         Column::string('article', 'Article');

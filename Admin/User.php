@@ -21,9 +21,9 @@ Admin::model('App\Models\User')->title('Users')
 		FormItem::image('avatar', 'Аватар');
 		FormItem::text('name', 'Имя')->required();
 		FormItem::text('surname','Фамилия')->required();
-		FormItem::text('login','Login')->required();
-		FormItem::text('email', 'Email')->required()->unique();
-		FormItem::text('password', 'Пароль')->required()->unique();
+		FormItem::text('login','Login');
+		FormItem::text('email', 'Email')->unique();
+		FormItem::text('password', 'Пароль')->unique();
 		FormItem::textarea('description','Описание');
 		FormItem::text('group','Номер группы');
 	});

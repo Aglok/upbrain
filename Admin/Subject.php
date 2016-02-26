@@ -10,6 +10,7 @@ Admin::model(App\Models\Subject::class)->title('Темы')->with('category')->fi
     Column::string('category.name', 'Category_Subject')->append(Column::filter('category_id')->value('category_id'));
 	Column::string('code', 'Code');
 })->form(function ()
+{
 	FormItem::text('name', 'Name Subject');
 	FormItem::select('category_id', 'Category')->list(App\Models\Category_Subject::class);
 	FormItem::text('code', 'Code');

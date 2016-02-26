@@ -4,13 +4,6 @@ use Validator, Input, Redirect, Auth;
 use App\Models\Post; //Добавляем класс post модели в из папки App/post.php
 class BlogController extends Controller {
 
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-
         public function __construct(){
             return view('app');//по умолчанию будет использоватсья шаблон layout.blade.php
         }
