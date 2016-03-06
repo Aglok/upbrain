@@ -6,6 +6,7 @@ use App\Models\Set_Of_Task;
 use App\Models\User;
 use App\Models\Stage;
 use App\Models\Progress;
+use App\Models\User_Progress;
 use App\Models\Process;
 use App\Models\Grade;
 use AdminAuth;
@@ -38,7 +39,7 @@ class ProcessController extends AdminController
             'experience' => 'Опыт' ,
             'gold' => 'Монет',
             'grade' => 'Уровень сложности',
-            'subject_id' => 'Код предмета',
+            'subject_id' => 'id предмета',
             'rating' => 'Уровень значимости' ,
             'comment' => 'Комментарий'
         ];
@@ -80,8 +81,17 @@ class ProcessController extends AdminController
             //$group = $userObject->group;
             $user = $userObject->users;
             $stage = $userObject->stages;
-            //$user_progress = $userObject->user_progress;
+            $progress_id = $userObject->user_progress;
             $number_lesson = $userObject->number_lesson;
+            $exp_progress = $userObject->exp_progress;
+
+            User_Progress::create([
+                'progress_id' => $progress_id,
+                'user_id' => $user,
+                'experience' => $exp_progress,
+                //'description' => $description
+                //'gift' => $gift,
+            ]);
 
             foreach($result as $key => $value){
 
@@ -178,6 +188,22 @@ class ProcessController extends AdminController
         if($request->ajax()){
             $query = Progress::select(['name', 'alias'])->get();
             $param = (object)['idNameSelect' => 'user_progress', 'url' => 'user_progress', 'prop' => ['name', 'alias']];
+            return $response->json([$query, $param]);
+        }
+    }
+
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @return Object
+     * */
+    public function userProgress(Request $request, Response $response)
+    {
+        if($request->ajax()){
+            $id = $request->get('id');
+            $query = Progress::select(['name', 'alias'])->where('id', '=', $id)->get();
+            $param = 'progress';
+
             return $response->json([$query, $param]);
         }
     }
