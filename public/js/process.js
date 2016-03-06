@@ -59,10 +59,19 @@ $(function () {
             url: url,
             data: {id: selectedParam}
         }).done(function (data) {
-            //data - объект модели users
+            //data - объект модели
             //Удаление лишних элементов, после создания списка для другой группы
             var model = data[0];
             var param = data[1];
+
+            if(param == 'progress'){
+                var label = $('label[for=exp_progress]');
+                if(label) label.remove();
+
+                var strInput = '<label for="exp_progress">' + model[0].name + ' <input type="text" name="exp_progress" value="10"></label>';
+                $('#select').append(strInput);
+                return false;
+            }
 
             //Выбрать элемент с указанным id
             var elSelect = $('select' + '#' + param.idNameSelect);
@@ -87,6 +96,7 @@ $(function () {
             });
 
             $('#select').append(select);
+
             //Меняем вид списка на dropdown radio
             $('.multiselect'+'#'+param.idNameSelect).multiselect({buttonClass: param.idNameSelect + ' btn btn-default'});
             //Удаляем лишний select после выбора
@@ -131,6 +141,7 @@ $(function () {
         var input = $('#select li.active input[type=radio]');
         var nameAttr = $('#select li.active').closest('div.btn-group').prev();
         var num_lesson = $('input[name=number_lesson]');
+        var exp_progress = $('input[name=exp_progress]');
 
         //Если чекбоксы выбраны -> берём все данные из ячеек строки
         $('input:checkbox:checked').closest('tr').each(function(j, tr){
@@ -146,6 +157,11 @@ $(function () {
             array[j] = task;//Записываем объект в массив
         });
 
+        //Проверяем выбраны ли задачи!
+        if(!array.length){
+            console.log('Выберите задачи');
+            return false;
+        }
         //Добавляем строку и подсчитываем сумму очков и золота по grade и subject
         buildHtml();
 
@@ -157,6 +173,7 @@ $(function () {
         }
 
         user[num_lesson.attr('name')] = num_lesson.val();
+        user[exp_progress.attr('name')] = exp_progress.val();
 
         data.task = array;
         data.user = user;
