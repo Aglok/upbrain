@@ -9,18 +9,8 @@ class Task extends SleepingOwlModel implements ModelWithImageFieldsInterface  {
     use ModelWithImageOrFileFieldsTrait;
 
     public $timestamps = false;
-    /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
-    protected $table = 'tasks';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    protected $table = 'tasks';
     protected $fillable = ['number_task','image','experience','gold','grade','answer','detail','subject_id','set_of_task'];
 
     public function subject()

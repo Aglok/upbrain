@@ -9,13 +9,8 @@ use SleepingOwl\Models\Traits\ModelWithImageOrFileFieldsTrait;
 class Set_Of_Task extends SleepingOwlModel implements ModelWithImageFieldsInterface
 {
     use ModelWithImageOrFileFieldsTrait;
-    /**
-     * @var string
-     */
+
     protected $table = 'set_of_tasks';
-    /**
-     * @var array
-     */
     protected $fillable = ['name','alias','image','type','description','created_at','updated_at'];
 
     public function getImageFields()

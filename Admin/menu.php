@@ -3,7 +3,7 @@
 Admin::menu()->url('/')->label('Start Page')->icon('fa-dashboard');
 Admin::menu('App\Models\User')->label('Ученики')->icon('fa-users');
 Admin::menu('App\Models\Task')->label('Задачи')->icon('fa-tasks');
-Admin::menu('App\Models\Set_Of_Task')->label('Нобор задач')->icon('fa-list-alt');
+Admin::menu('App\Models\Set_Of_Task')->label('Набор задач')->icon('fa-list-alt');
 Admin::menu('App\Models\Subject')->label('Темы')->icon('fa-list');
 Admin::menu('App\Models\Stage')->label('Этапы')->icon('fa-circle-o');
 Admin::menu('App\Models\Progress')->label('Достижения')->icon('fa-circle');

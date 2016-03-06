@@ -5,18 +5,8 @@ use SleepingOwl\Models\SleepingOwlModel;
 class Subject extends SleepingOwlModel{
 
     public $timestamps = false;
-    /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
-    protected $table = 'subjects';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    protected $table = 'subjects';
     protected $fillable = ['name','category_id','code'];
 
     public function category()
@@ -28,7 +18,6 @@ class Subject extends SleepingOwlModel{
      *
      * @return array
      */
-
     public static function getList(){
 
         return static::lists('name', 'id')->toArray();
